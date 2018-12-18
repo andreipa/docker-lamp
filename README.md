@@ -1,5 +1,7 @@
 # Docker LAMP Development v1.0.0
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A very basic LAMP stack environment for development. It was built using Docker Compose 3.7 and consists following:
 
 * [PHP 7.2](https://hub.docker.com/_/php)
@@ -126,7 +128,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the 
-[tags on this repository](https://github.com/your/repository/tags). 
+[tags on this repository](https://github.com/andreipa/docker-lamp/tags). 
 
 ## Author
 
