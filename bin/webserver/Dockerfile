@@ -24,10 +24,7 @@ RUN apt-get update && apt-get install -y \
 
 # Other PHP7 Extensions
 
-RUN apt-get -y install libmcrypt-dev
-RUN docker-php-ext-install mcrypt
-
-RUN apt-get -y install libsqlite3-dev libsqlite3-0 mysql-client
+RUN apt-get -y install libsqlite3-dev libsqlite3-0
 RUN docker-php-ext-install pdo_mysql 
 RUN docker-php-ext-install pdo_sqlite
 RUN docker-php-ext-install mysqli
@@ -39,14 +36,14 @@ RUN docker-php-ext-install json
 RUN apt-get -y install zlib1g-dev
 RUN docker-php-ext-install zip
 
-RUN apt-get -y install libicu-dev
-RUN docker-php-ext-install -j$(nproc) intl
-
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install gettext
 RUN docker-php-ext-install exif
 RUN docker-php-ext-install calendar
 RUN docker-php-ext-install bcmath
+
+RUN apt-get -y install libicu-dev
+RUN docker-php-ext-install -j$(nproc) intl
 
 RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ 
