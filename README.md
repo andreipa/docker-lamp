@@ -130,11 +130,11 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Author
 
-* **Andrei** - *Initial work* - [andreipa](https://github.com/andreipa/docker-lamp)
+* **Andrei Andrade** - *Initial work* - [andreipa](https://github.com/andreipa/docker-lamp)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
 
 ## Acknowledgments
 
