@@ -1,4 +1,4 @@
-version: "3.3"
+version: "3.7"
 
 services:
   webserver:
@@ -21,27 +21,21 @@ services:
     container_name: '8.0-mysql'
     restart: 'always'
     ports:
-      - "3306:3306"
+      - "13306:3306"
     volumes: 
-      - .init.sql:/docker-entrypoint-initdb.d
+#      - .init.sql:/docker-entrypoint-initdb.d Custom SQL
       - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
       - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD:${MYSQL_ROOT_PASSWORD}
-      - MYSQL_USER:${MYSQL_USER}
-      - MYSQL_PASSWORD:${MYSQL_PASSWORD}
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: 'sc-phpmyadmin'
-    links:
-      - mysql
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+  adminer:
+    image: adminer
+    container_name: 'sc-adminer'
+    restart: 'always'
     ports:
-      - '8080:80'
-    volumes: 
-      - /sessions
+      - '8080:8080'
   redis:
     container_name: 'sc-redis'
     image: redis:latest
