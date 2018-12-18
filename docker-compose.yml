@@ -21,23 +21,16 @@ services:
     container_name: '8.0-mysql'
     restart: 'always'
     ports:
-      - "13306:3306"
+      - "3306:3306"
     volumes: 
-#      - .init.sql:/docker-entrypoint-initdb.d Custom SQL
       - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
       - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASSWORD}
-  adminer:
-    image: adminer
-    container_name: 'sc-adminer'
-    restart: 'always'
-    ports:
-      - '8080:8080'
   redis:
-    container_name: 'sc-redis'
+    container_name: 'redis'
     image: redis:latest
     ports:
       - "6379:6379"
