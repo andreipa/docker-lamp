@@ -88,7 +88,6 @@ The installed version of PHP is 7.2
 By default following extensions are installed.
 
 * mysqli
-* mbstring
 * zip
 * intl
 * mcrypt
@@ -99,7 +98,6 @@ By default following extensions are installed.
 * xmlrpc
 * gd
 * pdo_sqlite
-* mysqli
 * bcmath
 * calendar
 * exif
