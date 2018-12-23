@@ -29,8 +29,3 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASSWORD}
-  redis:
-    container_name: 'redis'
-    image: redis:latest
-    ports:
-      - "6379:6379"

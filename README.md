@@ -87,32 +87,29 @@ The installed version of PHP is 7.2
 
 By default following extensions are installed.
 
-* mysqli
-* zip
-* intl
-* mcrypt
-* curl
-* json
-* iconv
-* xml
-* xmlrpc
-* gd
-* pdo_sqlite
 * bcmath
 * calendar
+* curl
+* ctype
 * exif
-* mbstring
-* openssl
+* gd
 * gettext
+* iconv
 * imagick
+* intl
+* json
+* mcrypt
+* mbstring
+* mysqli
+* openssl
+* pdo_sqlite
 * redis
 * xdebug
+* xml
+* xmlrpc
+* zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
-
-### Redis
-
-It comes with Redis. It runs on default port `6379`.
 
 ## Built With
 
@@ -138,5 +135,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) f
 
 ## Acknowledgments
 
-* Many thanks to SprintCude.
-* This docker was modified using the original LAMP [project](https://github.com/sprintcube/docker-compose-lamp)
+* Many thanks to [Docker](https://www.docker.com/)
