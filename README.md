@@ -6,7 +6,7 @@ A very basic LAMP stack environment for development. It was built using Docker C
 
 * [PHP 7.2](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
-* [MySQL 8.0.13](https://hub.docker.com/_/mysql)
+* [MySQL 5.7.25](https://hub.docker.com/_/mysql)
 
 
 ## Getting Started
