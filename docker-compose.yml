@@ -18,7 +18,7 @@ services:
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
   mysql:
     build: ./bin/mysql
-    container_name: '5.7-mysql'
+    container_name: '8.0.x-mysql'
     command: --lower_case_table_names=1
     restart: 'always'
     ports:
