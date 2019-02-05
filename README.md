@@ -6,7 +6,7 @@ A very basic LAMP stack environment for development. It was built using Docker C
 
 * [PHP 7.2](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
-* [MySQL 5.7.25](https://hub.docker.com/_/mysql)
+* [MySQL 8.0](https://hub.docker.com/_/mysql)
 
 
 ## Getting Started
@@ -16,7 +16,7 @@ Clone this repository on your local computer and run the docker compose on your 
 docker-compose up -d --build
 ```
 
-### Prerequisities
+### Prerequisites
 
 In order to run this container you'll need docker installed.
 
@@ -90,23 +90,17 @@ By default following extensions are installed.
 * bcmath
 * calendar
 * curl
-* ctype
 * exif
-* gd
 * gettext
 * iconv
 * imagick
-* intl
 * json
-* mcrypt
 * mbstring
 * mysqli
 * openssl
 * pdo_sqlite
-* redis
 * xdebug
 * xml
-* xmlrpc
 * zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
