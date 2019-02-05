@@ -1,6 +1,4 @@
 data/mysql
 logs/apache2
-www/
-data/mysql/
-
-*.code-workspace
+logs/mysql
+www
