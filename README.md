@@ -1,10 +1,10 @@
-# Docker LAMP Development v1.0.0
+# Docker LAMP Development v1.0.1
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A very basic LAMP stack environment for development. It was built using Docker Compose 3.7 and consists following:
 
-* [PHP 7.2](https://hub.docker.com/_/php)
+* [PHP 7.3](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
 * [MySQL 8.0](https://hub.docker.com/_/mysql)
 
@@ -76,12 +76,12 @@ By default following modules are enabled.
 You can connect to web server using `docker exec` command to perform various operation on it. Use below command to login to container via ssh.
 
 ```shell
-docker exec -it 7.2.x-webserver /bin/bash
+docker exec -it 7.3.x-webserver /bin/bash
 ```
 
 ### PHP
 
-The installed version of PHP is 7.2
+The installed version of PHP is 7.3
 
 #### Extensions
 
@@ -92,15 +92,10 @@ By default following extensions are installed.
 * curl
 * exif
 * gettext
-* iconv
 * imagick
-* json
-* mbstring
 * mysqli
-* openssl
 * pdo_sqlite
 * xdebug
-* xml
 * zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
