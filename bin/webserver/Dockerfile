@@ -1,10 +1,12 @@
-FROM php:7.2-apache
+FROM php:7.3-apache
 
 # Update and upgrade the system
 RUN apt-get update && apt-get upgrade -y --no-install-recommends apt-utils
 
 # Install important libraries
 RUN apt-get update && apt-get install -y \
+    zlib1g-dev\
+    libzip-dev \
     build-essential \
     curl \
     libcurl3 \
@@ -18,12 +20,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # PECL Extensions xdebug | imagick
 RUN apt-get update && apt-get install -y \
     libmagickwand-dev --no-install-recommends \
-    && pecl install xdebug-2.6.1 \
-    && pecl install imagick \
+    && pecl install xdebug-2.7.0RC1 \
+    && pecl install imagick-3.4.3 \
     && docker-php-ext-enable xdebug imagick
 
 # Other PHP7 Extensions
-RUN apt-get update && apt-get install -y zlib1g-dev \
+RUN apt-get update && apt-get install -y \
     && docker-php-ext-install bcmath \
     && docker-php-ext-install calendar \
     && docker-php-ext-install exif \
