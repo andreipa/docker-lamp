@@ -1,4 +1,4 @@
-# Docker LAMP Development v1.0.1
+# Docker LAMP Development v1.0.2
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -7,7 +7,6 @@ A very basic LAMP stack environment for development. It was built using Docker C
 * [PHP 7.3](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
 * [MySQL 8.0](https://hub.docker.com/_/mysql)
-
 
 ## Getting Started
 
@@ -54,7 +53,7 @@ This package comes with default configuration options. You can modify them by ed
 
 * `DB_ROOT_PASSWORD` - The root password of the MySQL. Default `root`.
 * `DB_USER` - Optional user name with superuser permissions. Default `user`.
-* `DB_PASSWORD` - Optional password for the user. Default `pass`.
+* `DB_PASSWORD` - Optional password for the user. Default `root`.
 
 ## Containers
 
@@ -92,10 +91,10 @@ By default following extensions are installed.
 * curl
 * exif
 * gettext
-* imagick
+* imagick-3.4.3
 * mysqli
 * pdo_sqlite
-* xdebug
+* xdebug-2.7.0RC1
 * zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
