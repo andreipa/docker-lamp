@@ -1,8 +1,0 @@
-sudo: required
-services:
-  - docker
-before_install:
-  - docker --version
-  - echo "ENV GIT_SHA ${TRAVIS_COMMIT}" >> Dockerfile
-install:
-  - docker-compose up -d
