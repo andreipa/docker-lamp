@@ -8,6 +8,8 @@ A very basic LAMP stack environment for development. It was built using Docker C
 * [Apache 2.4](https://hub.docker.com/_/httpd)
 * [MySQL 5.7](https://hub.docker.com/_/mysql)
 
+For **PHP 5.6** you can change to the branch [php-5](https://github.com/andreipa/docker-lamp/tree/php-5)
+
 ## Getting Started
 
 Clone this repository on your local computer and run the docker compose on your terminal.
