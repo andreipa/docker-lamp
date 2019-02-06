@@ -4,9 +4,9 @@
 
 A very basic LAMP stack environment for development. It was built using Docker Compose 3.7 and consists following:
 
-* [PHP 7.3](https://hub.docker.com/_/php)
+* [PHP 5.6](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
-* [MySQL 8.0](https://hub.docker.com/_/mysql)
+* [MySQL 5.7](https://hub.docker.com/_/mysql)
 
 ## Getting Started
 
@@ -29,7 +29,7 @@ In order to run this container you'll need docker installed.
 
 Clone this repository on your local computer and run the docker compose on your terminal.
 ```shell
-git clone https://github.com/andreipa/docker-lamp
+git clone https://github.com/andreipa/docker-lamp/tree/php-5
 cd docker-lamp/
 git fetch --all
 docker-compose up -d --build
@@ -75,18 +75,18 @@ By default following modules are enabled.
 You can connect to web server using `docker exec` command to perform various operation on it. Use below command to login to container via ssh.
 
 ```shell
-docker exec -it 7.3.x-webserver /bin/bash
+docker exec -it 5.6.x-webserver /bin/bash
 ```
 
 ### PHP
 
-The installed version of PHP is 7.3
+The installed version of PHP is 5.6
 
 #### Extensions
 
 By default following extensions are installed.
 
-* bcmath
+* bz2
 * calendar
 * curl
 * exif
@@ -94,7 +94,7 @@ By default following extensions are installed.
 * imagick-3.4.3
 * mysqli
 * pdo_sqlite
-* xdebug-2.7.0RC1
+* xdebug-2.5.5
 * zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
