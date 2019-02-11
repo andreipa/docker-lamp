@@ -19,7 +19,7 @@ services:
   mysql:
     build: ./bin/mysql
     container_name: '8.0.x-mysql'
-    command: --lower_case_table_names=1
+    command: --lower_case_table_names=1 --default-authentication-plugin=mysql_native_password
     restart: 'always'
     ports:
       - "3306:3306"

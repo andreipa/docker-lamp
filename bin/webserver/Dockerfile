@@ -1,4 +1,4 @@
-FROM php:7.3-apache
+FROM php:7.3.2-apache
 
 # Update and upgrade the system
 RUN apt-get update && apt-get upgrade -y --no-install-recommends apt-utils
