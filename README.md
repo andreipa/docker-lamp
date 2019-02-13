@@ -4,7 +4,7 @@
 
 A very basic LAMP stack environment for development. It was built using Docker Compose 3.7 and consists following:
 
-* [PHP 7.3](https://hub.docker.com/_/php)
+* [PHP 7.2](https://hub.docker.com/_/php) (7.3 is not yet supported by memcached module for php7)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
 * [MySQL 8.0](https://hub.docker.com/_/mysql)
 
@@ -40,7 +40,7 @@ You can access your LAMP stack via `http://localhost`
 
 ### Configuration
 
-This package comes with default configuration options. You can modify them by editing the Dockerfile inside the folders `./bin/mysql` and `./bin/webserver`.
+This package comes with default configuration options. You can modify them by editing the Dockerfile inside the folders `./bin/mysql` and `./bin/webserver`. The variables are contained in the default **Environment file** `./.env` - you *must* run `doocker-compose` command from the project root, otherwise the file is ignored.
 
 #### Environment Variables
 
@@ -77,12 +77,12 @@ By default following modules are enabled.
 You can connect to web server using `docker exec` command to perform various operation on it. Use below command to login to container via ssh.
 
 ```shell
-docker exec -it 7.3.x-webserver /bin/bash
+docker exec -it 7.2.x-webserver /bin/bash
 ```
 
 ### PHP
 
-The installed version of PHP is 7.3
+The installed version of PHP is 7.2
 
 #### Extensions
 
@@ -94,6 +94,7 @@ By default following extensions are installed.
 * exif
 * gettext
 * imagick-3.4.3
+* memcached
 * mysqli
 * pdo_sqlite
 * xdebug-2.7.0RC1
@@ -106,6 +107,10 @@ By default following extensions are installed.
 * Debian
 * Composer
 
+## Using this LAMP stack to host a website
+
+The LAMP stack comes with a simple `index.php` file in the default `DOCUMENT_ROOT`. You can checkout another project containing your website into `./www` to replace the default, or you can checkout to a different directory or subdirectory - just update `DOCUMENT_ROOT` in `.env` file appropriately and rebuild with `docker-compose`.
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -115,9 +120,10 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the 
 [tags on this repository](https://github.com/andreipa/docker-lamp/tags). 
 
-## Author
+## Authors
 
 * **Andrei Andrade** - *Initial work* - [andreipa](https://github.com/andreipa/docker-lamp)
+* **Trung Nguyen** - [t12ung](https://github.com/t12ung)
 
 ## License
 
