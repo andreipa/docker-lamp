@@ -106,6 +106,10 @@ By default following extensions are installed.
 * Debian
 * Composer
 
+## Using this LAMP stack to host a website
+
+The LAMP stack comes with a simple `index.php` file in the default `DOCUMENT_ROOT`. You can checkout another project containing your website into `./www` to replace the default, or you can checkout to a different directory or subdirectory - just update `DOCUMENT_ROOT` in `.env` file appropriately and rebuild with `docker-compose`.
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -118,6 +122,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## Author
 
 * **Andrei Andrade** - *Initial work* - [andreipa](https://github.com/andreipa/docker-lamp)
+* **Trung Nguyen** - [t12ung](https://github.com/t12ung)
 
 ## License
 
