@@ -7,6 +7,7 @@ A very basic LAMP stack environment for development. It was built using Docker C
 * [PHP 7.3](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
 * [MySQL 8.0](https://hub.docker.com/_/mysql)
+* [MailDev 1.0.0](https://github.com/djfarrelly/MailDev)
 
 For **PHP 5.6** you can change to the branch [php-5](https://github.com/andreipa/docker-lamp/tree/php-5)
 
@@ -40,7 +41,7 @@ You can access your LAMP stack via `http://localhost`
 
 ### Configuration
 
-This package comes with default configuration options. You can modify them by editing the Dockerfile inside the folders `./bin/mysql` and `./bin/webserver`.
+This package comes with default configuration options. You can modify them by editing the Dockerfile inside the folders `./bin/mysql` and `./bin/webserver`. The variables are contained in the default **Environment file** `./.env` - you *must* run `doocker-compose` command from the project root, otherwise the file is ignored.
 
 #### Environment Variables
 
@@ -100,6 +101,14 @@ By default following extensions are installed.
 * zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
+
+### MailDev
+
+MailDev is a simple way to test your project's generated emails during development with an easy to use web interface that runs on your machine built on top of [Node.js](https://nodejs.org/en/).
+
+```shell
+http://localhost:1080
+```
 
 ## Built With
 
