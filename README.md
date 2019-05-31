@@ -1,4 +1,4 @@
-# Docker LAMP Development v1.0.2
+# Docker LAMP Development v1.1.0
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -96,15 +96,17 @@ By default following extensions are installed.
 * imagick-3.4.3
 * mysqli
 * pdo_sqlite
-* xdebug-2.7.0RC1
+* xdebug-2.7.2
 * zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
 
 ## Built With
 
-* Debian
-* Composer
+* [Debian](https://www.debian.org/)
+* [Composer](https://getcomposer.org/)
+* [Browscap](https://browscap.org/)
+* [MailDev](https://github.com/djfarrelly/MailDev)
 
 ## Using this LAMP stack to host a website
 
