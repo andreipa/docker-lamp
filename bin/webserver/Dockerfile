@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     git \
-    libcurl3 \
+    libcurl4 \
     libsqlite3-dev \
     libzip-dev \
     zlib1g-dev\
