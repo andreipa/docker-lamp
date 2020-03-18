@@ -1,15 +1,14 @@
-# Docker LAMP Development v1.1.0
+# Docker LAMP Development
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/andreipa/docker-lamp?label=Version)
 
 A very basic LAMP stack environment for development. It was built using Docker Compose 3.7 and consists following:
 
-* [PHP 7.3](https://hub.docker.com/_/php)
+* [PHP 7.4](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
 * [MySQL 8.0](https://hub.docker.com/_/mysql)
-* [MailDev 1.0.0](https://github.com/djfarrelly/MailDev)
-
-For **PHP 5.6** you can change to the branch [php-5](https://github.com/andreipa/docker-lamp/tree/php-5)
+* [MailDev 1.0.0](https://github.com/mailhog/MailHog)
 
 ## Getting Started
 
@@ -37,7 +36,7 @@ cd docker-lamp/
 git fetch --all
 docker-compose up -d --build
 ```
-You can access your LAMP stack via `http://localhost`
+You can access your LAMP stack via `http://localhost` or `http://app1.test`
 
 ### Configuration
 
@@ -45,7 +44,7 @@ This package comes with default configuration options. You can modify them by ed
 
 #### Environment Variables
 
-* `DOCUMENT_ROOT` - The document root for the Apache server. The default value is `./www`. All your sites will go here and will be synced automatically.
+* `DOCUMENT_ROOT` - The document root for the Apache server. The default value is `./www`. All your sites will go here and will be synced automatically. You can create subfolders for each project.
 * `VHOSTS_DIR` - The virtual hosts. The default value for this is `./config/vhosts.` You can place your virtual hosts conf files here.
 * `APACHE_LOG_DIR` - This will be used to store Apache logs. The default value for this is `./logs/apache2`.
 * `MYSQL_LOG_DIR` - This will be used to store Apache logs. The default value for this is `./logs/mysql`.
@@ -78,12 +77,12 @@ By default following modules are enabled.
 You can connect to web server using `docker exec` command to perform various operation on it. Use below command to login to container via ssh.
 
 ```shell
-docker exec -it 7.3.x-webserver /bin/bash
+docker exec -it de-v7.4.x-webserver /bin/bash
 ```
 
 ### PHP
 
-The installed version of PHP is 7.3
+The installed version of PHP is 7.4
 
 #### Extensions
 
@@ -94,20 +93,20 @@ By default following extensions are installed.
 * curl
 * exif
 * gettext
-* imagick-3.4.3
+* imagick-3.4.4
 * mysqli
 * pdo_sqlite
-* xdebug-2.7.2
+* xdebug-2.9.3
 * zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
 
 ### MailDev
 
-MailDev is a simple way to test your project's generated emails during development with an easy to use web interface that runs on your machine built on top of [Node.js](https://nodejs.org/en/).
+MailHog is an email-testing tool with a fake SMTP server underneath. It encapsulates the SMTP protocol with extensions and does not require specific backend implementations. MailHog runs a super simple SMTP server that hogs outgoing emails sent to it. You can see the hogged emails in a web interface. MailHog is a portable tool built with Golang. You can run it on any supported platform, and Golang binary files allow you to set it up very simple – just copy and launch.
 
 ```shell
-http://localhost:1080
+http://localhost:8025
 ```
 
 ## Built With
@@ -115,7 +114,7 @@ http://localhost:1080
 * [Debian](https://www.debian.org/)
 * [Composer](https://getcomposer.org/)
 * [Browscap](https://browscap.org/)
-* [MailDev](https://github.com/djfarrelly/MailDev)
+* [MailHog](https://github.com/mailhog/MailHog)
 
 ## Using this LAMP stack to host a website
 
