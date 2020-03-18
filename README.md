@@ -8,7 +8,7 @@ A very basic LAMP stack environment for development. It was built using Docker C
 * [PHP 7.4](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
 * [MySQL 8.0](https://hub.docker.com/_/mysql)
-* [MailDev 1.0.0](https://github.com/mailhog/MailHog)
+* [MailHog 1.0.0](https://github.com/mailhog/MailHog)
 
 ## Getting Started
 
