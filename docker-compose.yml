@@ -4,16 +4,16 @@ services:
   webserver:
     build: 
       context: ./bin/webserver
-    container_name: '7.3.x-webserver'
+    container_name: 'dev-7.4.x-webserver'
     restart: 'always'
     ports:
       - "80:80"
       - "443:443"
     links: 
       - mysql
-      - maildev
+      - mailhog
     networks:
-      - lamp-net
+      - dev-lamp-net
     volumes: 
       - ${DOCUMENT_ROOT-./www}:/var/www/html
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
@@ -21,13 +21,13 @@ services:
       - ${APACHE_LOG_DIR-./logs/apache2}:/var/log/apache2
   mysql:
     build: ./bin/mysql
-    container_name: '8.0.x-mysql'
+    container_name: 'dev-8.0.x-mysql'
     command: --lower_case_table_names=1 --default-authentication-plugin=mysql_native_password
     restart: 'always'
     ports:
       - "3306:3306"
     networks:
-      - lamp-net
+      - dev-lamp-net
     volumes: 
       - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
       - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
@@ -35,15 +35,15 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASSWORD}
-  maildev:
-      image: djfarrelly/maildev
-      container_name: 'mail-server'
+  mailhog:
+      image: mailhog/mailhog:latest
+      container_name: 'dev-mail-server'
       restart: 'always'
       ports:
-        - "1080:80"
-        - "1025:25"
+        - "1025:1025"
+        - "8025:8025"
       networks:
-        - lamp-net
+        - dev-lamp-net
 networks:
-  lamp-net:
-    name: lamp-global-net
+  dev-lamp-net:
+    name: dev-lamp-global-net
