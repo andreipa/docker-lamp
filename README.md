@@ -133,6 +133,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Andrei Andrade** - *Initial work* - [andreipa](https://github.com/andreipa/docker-lamp)
 * **Trung Nguyen** - [t12ung](https://github.com/t12ung)
+* **Andre Pretto** - [prettoandre](https://github.com/prettoandre)
 
 ## License
 
