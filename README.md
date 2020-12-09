@@ -7,7 +7,7 @@ A very basic LAMP stack environment for development. It was built using Docker C
 
 * [PHP 7.4](https://hub.docker.com/_/php)
 * [Apache 2.4](https://hub.docker.com/_/httpd)
-* [MySQL 8.0](https://hub.docker.com/_/mysql)
+* [MySQL 8.0.22](https://hub.docker.com/_/mysql)
 * [MailHog 1.0.0](https://github.com/mailhog/MailHog)
 
 ## Getting Started
@@ -93,10 +93,13 @@ By default following extensions are installed.
 * curl
 * exif
 * gettext
+* intl
+* json
 * imagick-3.4.4
 * mysqli
 * pdo_sqlite
-* xdebug-2.9.3
+* xdebug-3.0.1
+* xml
 * zip
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.

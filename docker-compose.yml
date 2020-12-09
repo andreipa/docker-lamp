@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.9"
 
 services:
   webserver:
@@ -15,10 +15,10 @@ services:
     networks:
       - dev-lamp-net
     volumes: 
-      - ${DOCUMENT_ROOT-./www}:/var/www/html
-      - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
-      - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled
-      - ${APACHE_LOG_DIR-./logs/apache2}:/var/log/apache2
+      - ${DOCUMENT_ROOT}:/var/www/html
+      - ${PHP_INI}:/usr/local/etc/php/php.ini
+      - ${VHOSTS_DIR}:/etc/apache2/sites-enabled
+      - ${APACHE_LOG_DIR}:/var/log/apache2
   mysql:
     build: ./bin/mysql
     container_name: 'dev-8.0.x-mysql'
@@ -29,8 +29,8 @@ services:
     networks:
       - dev-lamp-net
     volumes: 
-      - ${MYSQL_DATA_DIR-./data/mysql}:/var/lib/mysql
-      - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
+      - ${MYSQL_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL_LOG_DIR}:/var/log/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_USER=${DB_USER}
