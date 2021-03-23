@@ -1,4 +1,4 @@
-FROM mysql:8.0.22
+FROM mysql:8.0
 
 # Update and upgrade the system
 RUN apt-get update && apt-get upgrade -y --no-install-recommends apt-utils

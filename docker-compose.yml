@@ -1,34 +1,34 @@
-version: "3.8"
+version: "3.9"
 
 services:
   webserver:
-    build: 
+    build:
       context: ./bin/webserver
-    container_name: 'dev-7.4.x-webserver'
-    restart: 'always'
+    container_name: "dev-7.4-webserver"
+    restart: "always"
     ports:
       - "80:80"
       - "443:443"
-    links: 
+    links:
       - mysql
       - mailhog
     networks:
       - dev-lamp-net
-    volumes: 
+    volumes:
       - ${DOCUMENT_ROOT}:/var/www/html
       - ${PHP_INI}:/usr/local/etc/php/php.ini
       - ${VHOSTS_DIR}:/etc/apache2/sites-enabled
       - ${APACHE_LOG_DIR}:/var/log/apache2
   mysql:
     build: ./bin/mysql
-    container_name: 'dev-8.0.x-mysql'
+    container_name: "dev-8.0-mysql"
     command: --lower_case_table_names=1 --default-authentication-plugin=mysql_native_password
-    restart: 'always'
+    restart: "always"
     ports:
       - "3306:3306"
     networks:
       - dev-lamp-net
-    volumes: 
+    volumes:
       - ${MYSQL_DATA_DIR}:/var/lib/mysql
       - ${MYSQL_LOG_DIR}:/var/log/mysql
     environment:
@@ -36,14 +36,14 @@ services:
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASSWORD}
   mailhog:
-      image: mailhog/mailhog:latest
-      container_name: 'dev-mail-server'
-      restart: 'always'
-      ports:
-        - "1025:1025"
-        - "8025:8025"
-      networks:
-        - dev-lamp-net
+    image: mailhog/mailhog:latest
+    container_name: "dev-mail-mailhog"
+    restart: "always"
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - dev-lamp-net
 networks:
   dev-lamp-net:
     name: dev-lamp-global-net

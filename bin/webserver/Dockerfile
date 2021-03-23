@@ -38,7 +38,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 # PECL Extensions xdebug | imagick
 RUN apt-get update && apt-get install -y \
     libmagickwand-dev --no-install-recommends \
-    && pecl install xdebug-3.0.1 \
+    && pecl install xdebug-3.0.3 \
     && pecl install imagick-3.4.4 \
     && docker-php-ext-enable xdebug imagick
 
