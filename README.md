@@ -7,10 +7,11 @@
 
 A very basic LAMP stack environment for development. It was built using Docker Compose 3.9 and consists following:
 
-- [PHP 7.4](https://hub.docker.com/_/php)
+- [PHP 8](https://hub.docker.com/_/php)
 - [Apache 2.4](https://hub.docker.com/_/httpd)
-- [MySQL 8.0](https://hub.docker.com/_/mysql)
+- [MySQL 8](https://hub.docker.com/_/mysql)
 - [MailHog 1.0.1](https://github.com/mailhog/MailHog)
+- [phpMyAdmin 5](https://hub.docker.com/_/phpmyadmin)
 
 ## Getting Started
 
@@ -84,12 +85,12 @@ By default following modules are enabled.
 You can connect to web server using `docker exec` command to perform various operation on it. Use below command to login to container via bash.
 
 ```shell
-docker exec -it dev-7.4-webserver bash
+docker exec -it php8-apache bash
 ```
 
 ### PHP
 
-The installed version of PHP is 7.4
+The installed version of PHP is 8.
 
 #### Extensions
 
@@ -99,11 +100,13 @@ By default following extensions are installed.
 - calendar
 - curl
 - exif
+- gd
 - gettext
 - intl
 - json
 - imagick-3.4.4
 - mysqli
+- pdo_mysql
 - pdo_sqlite
 - xdebug-3.0.4
 - xml
@@ -111,7 +114,21 @@ By default following extensions are installed.
 
 > If you want to install more extension, just update `./bin/webserver/Dockerfile`.
 
-### MailDev
+### MySQL
+
+The installed version of MySQL is 8.
+
+### phpMyAdmin
+
+phpMyAdmin is configured to run on port 8080. Use following default credentials.
+
+```
+http://localhost:8080
+username: root
+password: root
+```
+
+### Mail
 
 MailHog is an email-testing tool with a fake SMTP server underneath. It encapsulates the SMTP protocol with extensions and does not require specific backend implementations. MailHog runs a super simple SMTP server that hogs outgoing emails sent to it. You can see the hogged emails in a web interface. MailHog is a portable tool built with Golang. You can run it on any supported platform, and Golang binary files allow you to set it up very simple – just copy and launch.
 
@@ -125,6 +142,7 @@ http://localhost:8025
 - [Composer](https://getcomposer.org/)
 - [Browscap](https://browscap.org/)
 - [MailHog](https://github.com/mailhog/MailHog)
+- [phpMyAdmin](https://www.phpmyadmin.net/)
 
 ## Using this LAMP stack to host a website
 

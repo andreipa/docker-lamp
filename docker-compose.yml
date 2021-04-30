@@ -4,46 +4,63 @@ services:
   webserver:
     build:
       context: ./bin/webserver
-    container_name: "dev-7.4-webserver"
+    container_name: "php8-apache"
     restart: "always"
     ports:
       - "80:80"
       - "443:443"
     links:
-      - mysql
-      - mailhog
+      - database
+      - mail
     networks:
-      - dev-lamp-net
+      - lamp-net
     volumes:
       - ${DOCUMENT_ROOT}:/var/www/html
       - ${PHP_INI}:/usr/local/etc/php/php.ini
       - ${VHOSTS_DIR}:/etc/apache2/sites-enabled
       - ${APACHE_LOG_DIR}:/var/log/apache2
-  mysql:
+  database:
     build: ./bin/mysql
-    container_name: "dev-8.0-mysql"
+    container_name: "mysql8"
     command: --lower_case_table_names=1 --default-authentication-plugin=mysql_native_password
     restart: "always"
     ports:
       - "3306:3306"
     networks:
-      - dev-lamp-net
+      - lamp-net
     volumes:
       - ${MYSQL_DATA_DIR}:/var/lib/mysql
       - ${MYSQL_LOG_DIR}:/var/log/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
-      - MYSQL_USER=${DB_USER}
-      - MYSQL_PASSWORD=${DB_PASSWORD}
-  mailhog:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+  phpmyadmin:
+    depends_on:
+      - database
+    image: phpmyadmin/phpmyadmin
+    container_name: "phpmyadmin"
+    restart: "always"
+    links:
+      - database
+    ports:
+      - "8080:80"
+    networks:
+      - lamp-net
+    environment:
+      PMA_HOST: database
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+  mail:
     image: mailhog/mailhog:latest
-    container_name: "dev-mail-mailhog"
+    container_name: "mailhog"
     restart: "always"
     ports:
       - "1025:1025"
       - "8025:8025"
     networks:
-      - dev-lamp-net
+      - lamp-net
 networks:
-  dev-lamp-net:
-    name: dev-lamp-global-net
+  lamp-net:
+    name: lamp-global-net
