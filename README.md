@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/andreipa/docker-lamp?label=Version)
 
-![banner-lamp-logo](https://user-images.githubusercontent.com/7590574/112154551-4ca6d500-8bdc-11eb-842a-8943b43807b1.png)
+![banner-lamp](https://user-images.githubusercontent.com/7590574/116710591-d448e600-a9c9-11eb-910b-4b46a5f55ef3.png)
 
 A very basic LAMP stack environment for development. It was built using Docker Compose 3.9 and consists following:
 
