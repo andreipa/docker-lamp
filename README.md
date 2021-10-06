@@ -104,11 +104,11 @@ By default following extensions are installed.
 - gettext
 - intl
 - json
-- imagick-3.4.4
+- imagick-3.5.1
 - mysqli
 - pdo_mysql
 - pdo_sqlite
-- xdebug-3.0.4
+- xdebug-3.1.0
 - xml
 - zip
 

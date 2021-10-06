@@ -12,5 +12,6 @@ RUN apt-get update && apt-get install -y \
 # Cleanup
 RUN rm -rf /usr/src/*
 
-#Init db schema
+# Init db schema
+# You can setup a db entry point by default if you want
 #COPY ./init.sql /docker-entrypoint-initdb.d/
