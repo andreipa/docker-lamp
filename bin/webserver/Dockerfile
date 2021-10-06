@@ -33,30 +33,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install xdebug
 RUN apt-get update && apt-get install -y \
     --no-install-recommends \
-    && pecl install xdebug-3.0.4 \
+    && pecl install xdebug-3.1.0 \
     && docker-php-ext-enable xdebug
 
 # Install imagick
-RUN apt-get update && apt-get -y \
-    --no-install-recommends install --fix-missing libmagickwand-dev && \
-    rm -rf /var/lib/apt/lists/*
-
-# Workarround until imagick is available in pecl with php8 support
-# Imagick Commit to install
-# https://github.com/Imagick/imagick
-ARG IMAGICK_COMMIT="132a11fd26675db9eb9f0e9a3e2887c161875206"
-
-RUN cd /usr/local/src && \
-    git clone https://github.com/Imagick/imagick && \
-    cd imagick && \
-    git checkout ${IMAGICK_COMMIT} && \
-    phpize && \
-    ./configure && \
-    make && \
-    make install && \
-    cd .. && \
-    rm -rf imagick && \
-    docker-php-ext-enable imagick
+RUN apt-get update && apt-get install -y \
+    libmagickwand-dev --no-install-recommends \
+    && pecl install imagick-3.5.1 \
+    && docker-php-ext-enable imagick
 
 # Other PHP8 Extensions
 RUN apt-get update && apt-get install -y \
